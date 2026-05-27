@@ -254,10 +254,6 @@ main {
   color: #f0c9a8;
 }
 
-.hero .bajada {
-  color: rgba(250, 246, 241, 0.92);
-}
-
 .hero .marco-titulo {
   background: rgba(242, 230, 218, 0.94);
   color: var(--texto);
