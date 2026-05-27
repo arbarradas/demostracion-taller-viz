@@ -121,6 +121,30 @@ function initNavegacion() {
   window.addEventListener("scroll", marcarActivo, { passive: true });
 }
 
+function initContacto() {
+  const boton = document.querySelector("#btn-contacto");
+  if (!boton) return;
+
+  boton.addEventListener("click", () => {
+    const usuario = "arbarradas";
+    const dominio = ["tec", "mx"].join(".");
+    const correo = `${usuario}@${dominio}`;
+    window.location.href = `mailto:${correo}?subject=${encodeURIComponent("Contacto — Hub de Migración e Impacto Social")}`;
+  });
+}
+
+function initVolverArriba() {
+  const boton = document.querySelector("#btn-arriba");
+  if (!boton) return;
+
+  const mostrar = () => {
+    boton.hidden = window.scrollY < 320;
+  };
+
+  mostrar();
+  window.addEventListener("scroll", mostrar, { passive: true });
+}
+
 cargarDatos().then((datos) => {
   actualizarResumen(datos);
   dibujarGrafica(datos);
@@ -128,3 +152,5 @@ cargarDatos().then((datos) => {
 });
 
 initNavegacion();
+initContacto();
+initVolverArriba();

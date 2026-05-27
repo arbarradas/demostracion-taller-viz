@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <a class="saltar-contenido" href="#hub">Saltar al contenido principal</a>
+
     <nav class="nav-hub" aria-label="Navegación principal del Hub">
       <div class="nav-hub-inner">
         <a class="nav-marca" href="#hub">Hub Migración</a>
@@ -24,18 +26,20 @@
           <li><a href="#datos" data-nav="datos">Datos</a></li>
           <li><a href="#visualizacion" data-nav="visualizacion">Visualización</a></li>
           <li><a href="#seccion-lectura" data-nav="seccion-lectura">Lectura</a></li>
+          <li><a href="#podcast" data-nav="podcast">Podcast</a></li>
+          <li><a href="#contacto" data-nav="contacto">Contacto</a></li>
         </ul>
       </div>
     </nav>
 
     <section id="hub" class="hub-presentacion seccion-ancla" aria-labelledby="hub-titulo-principal">
       <div class="ancho-contenido">
-        <h1 id="hub-titulo-principal" class="hub-titulo-principal">
+        <h1 id="hub-titulo-principal" class="hub-titulo-principal titulo-grande">
           <span class="hub-titulo-linea">HUB DE MIGRACIÓN E IMPACTO SOCIAL.</span>
-          <span class="hub-titulo-campus">Tecnológico de Monterrey, campus Puebla.</span>
+          <span class="hub-titulo-campus subtitulo">Tecnológico de Monterrey, campus Puebla.</span>
         </h1>
 
-        <div class="hub-descripcion">
+        <div class="hub-descripcion texto">
           <p>
             El Hub de Migración e Impacto Social surge a partir de una inquietud compartida entre
             profesorado, colaboradorxs, estudiantes y directivas del Tecnológico de Monterrey campus
@@ -82,7 +86,7 @@
     <section id="caso-estudio" class="caso-estudio-intro seccion-ancla" aria-labelledby="etiqueta-caso-estudio">
       <div class="ancho-contenido">
         <p id="etiqueta-caso-estudio" class="etiqueta">CASO DE ESTUDIO</p>
-        <p class="intro-caso-estudio">
+        <p class="intro-caso-estudio texto">
           Aquí se mostrará brevemente un poco del estudio realizado como parte de los esfuerzos desde
           el Hub, una investigación que alude a la migración estudiantil, bajo el título:
         </p>
@@ -92,9 +96,9 @@
     <header id="estudio" class="hero seccion-ancla">
       <div class="hero-contenido">
         <div class="marco-titulo">
-          <h2 class="titulo-estudio">Migración: movilidad estudiantil en el Tec de Monterrey campus Puebla</h2>
+          <h2 class="titulo-estudio subtitulo">Migración: movilidad estudiantil en el Tec de Monterrey campus Puebla</h2>
         </div>
-        <p class="bajada">Una aproximación a la movilidad estudiantil en el Tec de Monterrey.</p>
+        <p class="bajada texto">Una aproximación a la movilidad estudiantil en el Tec de Monterrey.</p>
       </div>
     </header>
 
@@ -117,8 +121,8 @@
       <section id="visualizacion" class="contenedor-viz seccion-ancla">
         <div>
           <p class="etiqueta">Visualización</p>
-          <h2>Valores por categoría</h2>
-          <p>
+          <h2 class="subtitulo">Valores por categoría</h2>
+          <p class="texto">
             Cambia los datos en <code>datos.csv</code> para adaptar esta plantilla a tu investigación.
             Cada fila debe tener una categoría, un valor y una nota.
           </p>
@@ -131,14 +135,75 @@
 
       <section id="seccion-lectura" class="seccion-lectura seccion-ancla">
         <p class="etiqueta">Lectura generada</p>
-        <p id="lectura" class="lectura">Cargando datos...</p>
+        <p id="lectura" class="lectura subtitulo">Cargando datos...</p>
       </section>
       <iframe width="100%" height="484" frameborder="0"
         src="https://graphcommons.com/graphs/c1b30234-b0f4-4379-9443-551076505668?mode=select&show=ai-chat"
         title="Grafo — Graph Commons"></iframe>
 
-      <section></section>
+      <section id="podcast" class="seccion-podcast seccion-ancla" aria-labelledby="titulo-podcast">
+        <div class="ancho-contenido">
+          <p class="etiqueta">Audio</p>
+          <h2 id="titulo-podcast" class="subtitulo">Podcast Sociedad Migrante</h2>
+          <p class="texto">
+            Proyecto sonoro del Hub que aborda la migración desde una perspectiva humana y global,
+            con la participación de estudiantes y voces internacionales. Escucha la primera temporada,
+            <em>Voces del Parlamento Europeo</em>, y los nuevos episodios en Spotify.
+          </p>
+          <a
+            class="btn btn-spotify"
+            href="https://open.spotify.com/search/Sociedad%20Migrante%20Andr%C3%A9s%20Barradas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Escuchar «Sociedad Migrante» en Spotify
+          </a>
+        </div>
+      </section>
     </main>
+
+    <footer id="contacto" class="site-footer seccion-ancla" aria-label="Pie de página: créditos y contacto">
+      <div class="ancho-contenido footer-grid">
+        <section class="footer-bloque" aria-labelledby="titulo-creditos">
+          <h2 id="titulo-creditos" class="subtitulo">Créditos del Hub</h2>
+          <p class="texto">
+            Hub de Migración e Impacto Social — Tecnológico de Monterrey, campus Puebla y Región
+            Centro-Occidente.
+          </p>
+          <p class="texto footer-credito">
+            <strong>Dr. Andrés Barradas Gurruchaga</strong><br>
+            Creador del sitio web y coordinador del Hub.
+          </p>
+        </section>
+
+        <section class="footer-bloque" aria-labelledby="titulo-pie-contacto">
+          <h2 id="titulo-pie-contacto" class="subtitulo">Contactar</h2>
+          <p class="texto">
+            ¿Deseas colaborar, integrar un proyecto o conocer más sobre el Hub? Escríbenos por correo.
+          </p>
+          <button type="button" class="btn btn-correo" id="btn-contacto">
+            Enviar correo electrónico
+          </button>
+        </section>
+
+        <nav class="footer-bloque footer-mapa" aria-label="Mapa del sitio">
+          <h2 class="subtitulo">En esta página</h2>
+          <ul class="footer-enlaces">
+            <li><a href="#hub">El Hub</a></li>
+            <li><a href="#caso-estudio">Caso de estudio</a></li>
+            <li><a href="#datos">Datos</a></li>
+            <li><a href="#visualizacion">Visualización</a></li>
+            <li><a href="#seccion-lectura">Lectura</a></li>
+            <li><a href="#podcast">Podcast</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-legal texto">© Hub de Migración e Impacto Social — Tec de Monterrey, campus Puebla.</p>
+    </footer>
+
+    <a href="#hub" class="btn-volver-arriba" id="btn-arriba" aria-label="Volver arriba" hidden>
+      <span aria-hidden="true">↑</span>
+    </a>
 
     <script src="script.js"></script>
   </body>
