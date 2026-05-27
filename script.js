@@ -75,8 +75,56 @@ function escribirLectura(datos) {
     `Esta diferencia puede convertirse en el punto de partida para explicar causas, consecuencias o límites de los datos.`;
 }
 
+function initNavegacion() {
+  const nav = document.querySelector(".nav-hub");
+  const toggle = document.querySelector(".nav-toggle");
+  const menu = document.querySelector("#nav-menu");
+  const enlaces = document.querySelectorAll(".nav-menu a[data-nav]");
+  const secciones = [...document.querySelectorAll(".seccion-ancla")];
+
+  if (!nav || !toggle || !menu || secciones.length === 0) return;
+
+  const cerrarMenu = () => {
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menú de navegación");
+  };
+
+  toggle.addEventListener("click", () => {
+    const abierto = menu.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(abierto));
+    toggle.setAttribute("aria-label", abierto ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+  });
+
+  enlaces.forEach((enlace) => {
+    enlace.addEventListener("click", cerrarMenu);
+  });
+
+  document.addEventListener("click", (evento) => {
+    if (!nav.contains(evento.target)) cerrarMenu();
+  });
+
+  const marcarActivo = () => {
+    const offset = window.scrollY + nav.offsetHeight + 48;
+    let activa = secciones[0].id;
+
+    secciones.forEach((seccion) => {
+      if (seccion.offsetTop <= offset) activa = seccion.id;
+    });
+
+    enlaces.forEach((enlace) => {
+      enlace.classList.toggle("is-active", enlace.dataset.nav === activa);
+    });
+  };
+
+  marcarActivo();
+  window.addEventListener("scroll", marcarActivo, { passive: true });
+}
+
 cargarDatos().then((datos) => {
   actualizarResumen(datos);
   dibujarGrafica(datos);
   escribirLectura(datos);
 });
+
+initNavegacion();
