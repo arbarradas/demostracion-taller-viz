@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto con datos locales</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-contenido">
+        <p class="etiqueta">BRIEF</p>
+        <div class="marco-titulo">
+          <h1>Migración: movilidad estudiantil en el Tec de Monterrey campus Puebla</h1>
+        </div>
+        <p class="bajada">Una aproximación a la movilidad estudiantil en el Tec de Monterrey.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel-resumen" aria-label="Resumen de datos">
+        <article>
+          <span id="total-registros">0</span>
+          <p>registros</p>
+        </article>
+        <article>
+          <span id="valor-total">0</span>
+          <p>valor total</p>
+        </article>
+        <article>
+          <span id="categoria-mayor">-</span>
+          <p>categoría mayor</p>
+        </article>
+      </section>
+
+      <section class="contenedor-viz">
+        <div>
+          <p class="etiqueta">Visualización</p>
+          <h2>Valores por categoría</h2>
+          <p>
+            Cambia los datos en <code>datos.csv</code> para adaptar esta plantilla a tu investigación.
+            Cada fila debe tener una categoría, un valor y una nota.
+          </p>
+        </div>
+        <div id="grafica" class="grafica" aria-live="polite"></div>
+      </section>
+<iframe width="100%" height="484" frameborder="0"
+  src="https://observablehq.com/embed/fc3bf2d78af58a64?cells=dendogramalinealDatosju2"></iframe>
+
+      <section>
+        <p class="etiqueta">Lectura generada</p>
+        <p id="lectura" class="lectura">Cargando datos...</p>
+         </section>
+<iframe width="100%" height="484" frameborder="0"
+  src="https://graphcommons.com/graphs/c1b30234-b0f4-4379-9443-551076505668?mode=select&show=ai-chat"></iframe>
+
+      <section>
+     
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
