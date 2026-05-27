@@ -1,78 +1,53 @@
-const datosDeRespaldo = [
-  { categoria: "Categoría A", valor: 34, nota: "Mayor concentración del conjunto." },
-  { categoria: "Categoría B", valor: 21, nota: "Valor intermedio con tendencia estable." },
-  { categoria: "Categoría C", valor: 13, nota: "Caso menor, pero relevante para comparar." },
-  { categoria: "Categoría D", valor: 8, nota: "Categoría pequeña que puede requerir contexto." }
+const datosMigracion = [
+  {
+    destino: "Estados Unidos",
+    valor: 11654000,
+    nota: "Aprox. 97,8% de mexicanos en el exterior (IME/SRE)."
+  },
+  {
+    destino: "Europa",
+    valor: 103814,
+    nota: "Registro de connacionales en Europa (IME/SRE)."
+  },
+  {
+    destino: "Asia",
+    valor: 11180,
+    nota: "Mexicanas y mexicanos residentes en Asia (IME/SRE)."
+  }
 ];
 
-async function cargarDatos() {
-  try {
-    const respuesta = await fetch("datos.csv");
-    if (!respuesta.ok) throw new Error("No se pudo cargar datos.csv");
-    const texto = await respuesta.text();
-    return parsearCSV(texto);
-  } catch (error) {
-    return datosDeRespaldo;
-  }
+function formatearNumero(numero) {
+  return new Intl.NumberFormat("es-MX").format(numero);
 }
 
-function parsearCSV(texto) {
-  const lineas = texto.trim().split(/\r?\n/);
-  const encabezados = lineas.shift().split(",").map((columna) => columna.trim());
+function actualizarPanelMigracion() {
+  const destinos = {
+    "migrantes-eua": datosMigracion[0].valor,
+    "migrantes-europa": datosMigracion[1].valor,
+    "migrantes-asia": datosMigracion[2].valor
+  };
 
-  return lineas.map((linea) => {
-    const valores = linea.split(",").map((valor) => valor.trim());
-    const fila = Object.fromEntries(encabezados.map((encabezado, indice) => [encabezado, valores[indice]]));
-
-    return {
-      categoria: fila.categoria,
-      valor: Number(fila.valor),
-      nota: fila.nota
-    };
+  Object.entries(destinos).forEach(([id, valor]) => {
+    const elemento = document.querySelector(`#${id}`);
+    if (elemento) elemento.textContent = formatearNumero(valor);
   });
 }
 
-function formatearNumero(numero) {
-  return new Intl.NumberFormat("es-CO").format(numero);
-}
+function escribirLectura() {
+  const lectura = document.querySelector("#lectura");
+  if (!lectura) return;
 
-function actualizarResumen(datos) {
-  const total = datos.reduce((suma, fila) => suma + fila.valor, 0);
-  const mayor = [...datos].sort((a, b) => b.valor - a.valor)[0];
+  const eua = datosMigracion[0];
+  const europa = datosMigracion[1];
+  const asia = datosMigracion[2];
+  const total = datosMigracion.reduce((suma, fila) => suma + fila.valor, 0);
 
-  document.querySelector("#total-registros").textContent = formatearNumero(datos.length);
-  document.querySelector("#valor-total").textContent = formatearNumero(total);
-  document.querySelector("#categoria-mayor").textContent = mayor.categoria;
-}
-
-function dibujarGrafica(datos) {
-  const grafica = document.querySelector("#grafica");
-  const maximo = Math.max(...datos.map((fila) => fila.valor));
-
-  grafica.innerHTML = datos
-    .map((fila) => {
-      const ancho = (fila.valor / maximo) * 100;
-
-      return `
-        <div class="barra">
-          <strong>${fila.categoria}</strong>
-          <div class="riel" aria-hidden="true">
-            <div class="relleno" style="width: ${ancho}%"></div>
-          </div>
-          <span>${formatearNumero(fila.valor)}</span>
-        </div>
-      `;
-    })
-    .join("");
-}
-
-function escribirLectura(datos) {
-  const mayor = [...datos].sort((a, b) => b.valor - a.valor)[0];
-  const menor = [...datos].sort((a, b) => a.valor - b.valor)[0];
-
-  document.querySelector("#lectura").textContent =
-    `${mayor.categoria} concentra el valor más alto del conjunto, mientras ${menor.categoria} aparece como el menor. ` +
-    `Esta diferencia puede convertirse en el punto de partida para explicar causas, consecuencias o límites de los datos.`;
+  lectura.textContent =
+    `El Instituto de los Mexicanos en el Exterior (SRE) registra cerca de ${formatearNumero(total)} ` +
+    `mexicanas y mexicanos fuera del país. ${eua.destino} concentra la inmensa mayoría ` +
+    `(${formatearNumero(eua.valor)} personas), seguido de ${europa.destino} ` +
+    `(${formatearNumero(europa.valor)}) y ${asia.destino} (${formatearNumero(asia.valor)}). ` +
+    `La OIM y la ONU señalan que el corredor México–Estados Unidos sigue siendo el más numeroso del mundo.`;
 }
 
 function initNavegacion() {
@@ -145,12 +120,8 @@ function initVolverArriba() {
   window.addEventListener("scroll", mostrar, { passive: true });
 }
 
-cargarDatos().then((datos) => {
-  actualizarResumen(datos);
-  dibujarGrafica(datos);
-  escribirLectura(datos);
-});
-
+actualizarPanelMigracion();
+escribirLectura();
 initNavegacion();
 initContacto();
 initVolverArriba();

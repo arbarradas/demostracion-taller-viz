@@ -103,31 +103,55 @@
     </header>
 
     <main>
-      <section id="datos" class="panel-resumen seccion-ancla" aria-label="Resumen de datos">
-        <article>
-          <span id="total-registros">0</span>
-          <p>registros</p>
-        </article>
-        <article>
-          <span id="valor-total">0</span>
-          <p>valor total</p>
-        </article>
-        <article>
-          <span id="categoria-mayor">-</span>
-          <p>categoría mayor</p>
-        </article>
+      <section id="datos" class="seccion-datos seccion-ancla" aria-labelledby="titulo-datos">
+        <div class="ancho-contenido">
+          <p class="etiqueta">Datos</p>
+          <h2 id="titulo-datos" class="subtitulo">Población mexicana en el exterior por destino</h2>
+          <p class="texto datos-fuente">
+            Estimaciones del Instituto de los Mexicanos en el Exterior (SRE). El corredor México–Estados Unidos
+            es el más numeroso del mundo según la OIM y la ONU (UN DESA, 2024).
+          </p>
+          <div class="panel-resumen panel-migracion">
+            <article>
+              <span id="migrantes-eua" class="dato-destacado">11,654,000</span>
+              <p class="texto">Estados Unidos</p>
+            </article>
+            <article>
+              <span id="migrantes-europa" class="dato-destacado">103,814</span>
+              <p class="texto">Europa</p>
+            </article>
+            <article>
+              <span id="migrantes-asia" class="dato-destacado">11,180</span>
+              <p class="texto">Asia</p>
+            </article>
+          </div>
+        </div>
       </section>
 
-      <section id="visualizacion" class="contenedor-viz seccion-ancla">
-        <div>
+      <section id="visualizacion" class="seccion-oim seccion-ancla" aria-labelledby="titulo-visualizacion">
+        <div class="ancho-contenido">
           <p class="etiqueta">Visualización</p>
-          <h2 class="subtitulo">Valores por categoría</h2>
+          <h2 id="titulo-visualizacion" class="subtitulo">Migración internacional — Portal de Datos OIM</h2>
           <p class="texto">
-            Cambia los datos en <code>datos.csv</code> para adaptar esta plantilla a tu investigación.
-            Cada fila debe tener una categoría, un valor y una nota.
+            Mapa interactivo del Portal de Datos sobre Migración (GMDAC / OIM), con indicadores de stocks
+            migratorios internacionales comparables a nivel global y regional.
+          </p>
+          <div class="oim-embed-contenedor">
+            <iframe
+              class="oim-iframe"
+              src="https://www.migrationdataportal.org/es/embed-map"
+              title="Mapa interactivo de migración — Organización Internacional para las Migraciones"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="texto texto-fuente">
+            Fuente:
+            <a href="https://www.migrationdataportal.org/es" target="_blank" rel="noopener noreferrer">Portal de Datos sobre Migración (OIM)</a>
+            ·
+            <a href="https://worldmigrationreport.iom.int/what-we-do/world-migration-report-2024/chapter-2/international-migrants-numbers-and-trends" target="_blank" rel="noopener noreferrer">Informe sobre las Migraciones en el Mundo 2024</a>.
           </p>
         </div>
-        <div id="grafica" class="grafica" aria-live="polite"></div>
       </section>
       <iframe width="100%" height="484" frameborder="0"
         src="https://observablehq.com/embed/fc3bf2d78af58a64?cells=dendogramalinealDatosju2"
@@ -145,19 +169,37 @@
         <div class="ancho-contenido">
           <p class="etiqueta">Audio</p>
           <h2 id="titulo-podcast" class="subtitulo">Podcast Sociedad Migrante</h2>
-          <p class="texto">
-            Proyecto sonoro del Hub que aborda la migración desde una perspectiva humana y global,
-            con la participación de estudiantes y voces internacionales. Escucha la primera temporada,
-            <em>Voces del Parlamento Europeo</em>, y los nuevos episodios en Spotify.
-          </p>
-          <a
-            class="btn btn-spotify"
-            href="https://open.spotify.com/search/Sociedad%20Migrante%20Andr%C3%A9s%20Barradas"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Escuchar «Sociedad Migrante» en Spotify
-          </a>
+          <div class="podcast-tarjeta">
+            <a
+              class="podcast-portada-enlace"
+              href="https://open.spotify.com/search/Sociedad%20Migrante%20Andr%C3%A9s%20Barradas"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="Image20260220082736.png"
+                alt="Portada del podcast Sociedad Migrante"
+                width="200"
+                height="200"
+                class="podcast-portada"
+              >
+            </a>
+            <div class="podcast-info">
+              <p class="texto">
+                Proyecto sonoro del Hub que aborda la migración desde una perspectiva humana y global,
+                con la participación de estudiantes y voces internacionales. Escucha la primera temporada,
+                <em>Voces del Parlamento Europeo</em>, y los nuevos episodios en Spotify.
+              </p>
+              <a
+                class="btn btn-spotify"
+                href="https://open.spotify.com/search/Sociedad%20Migrante%20Andr%C3%A9s%20Barradas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Escuchar «Sociedad Migrante» en Spotify
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
