@@ -15,9 +15,10 @@
   --espacio-md: 1.75rem;
   --espacio-lg: 3rem;
   --espacio-xl: 4.5rem;
-  --fz-titulo: clamp(2rem, 4.5vw, 2.75rem);
-  --fz-subtitulo: 1.3125rem;
-  --fz-cuerpo: 1rem;
+  --fz-titulo: clamp(2.25rem, 5vw, 3.25rem);
+  --fz-subtitulo: 1.5rem;
+  --fz-cuerpo: 1.125rem;
+  --fz-pequena: 0.9375rem;
 }
 
 * {
@@ -115,7 +116,7 @@ h2.subtitulo {
   flex-shrink: 0;
   color: #ffd9a8;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: var(--fz-cuerpo);
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -306,7 +307,7 @@ main {
 .etiqueta {
   margin: 0 0 0.75rem;
   color: var(--acento-2);
-  font-size: 0.82rem;
+  font-size: var(--fz-pequena);
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
